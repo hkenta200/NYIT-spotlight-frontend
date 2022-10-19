@@ -10,12 +10,21 @@ function Hello() {
     )
 }
 
+function Bye() {
+    return (
+        <Text>
+            Bye Navigation!
+        </Text>
+    )
+}
+
 const Drawer = createDrawerNavigator();
 
 function NavigationContents() {
     return (
         <Drawer.Navigator>
             <Drawer.Screen name="Hello" component={Hello} />
+            <Drawer.Screen name = "Bye" component={Bye}/>
         </Drawer.Navigator>
     )
 }

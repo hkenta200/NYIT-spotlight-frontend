@@ -26,7 +26,7 @@ const SplashScreen = ({ navigation }) => {
             <Text
                 style={{color: "white", fontSize : 30, alignSelf: 'center', marginBottom : 50}}
             >
-                Maple Money Manager
+                SPOTLIGHT
             </Text>
 
             <TouchableOpacity onPress={() => navigation.navigate('SignInScreen')}
@@ -52,7 +52,7 @@ const height_logo = height * 0.28;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#8800C7'
+        backgroundColor: '#f2a900'
     },
     header: {
         flex: 2,
