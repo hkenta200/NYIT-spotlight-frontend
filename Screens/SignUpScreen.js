@@ -9,16 +9,22 @@ import {
   StyleSheet,
   StatusBar,
   TextInput,
-  Image
+  Image,
+  ScrollView
 } from 'react-native';
 
 import FontAwesome from 'react-native-vector-icons/FontAwesome'; //https://github.com/oblador/react-native-vector-icons#android
-import Feather from 'react-native-vector-icons/Feather';
 import { LinearGradient } from 'expo-linear-gradient';
 import { NavigationContainer } from '@react-navigation/native';
 
-//Status bar color fix: https://www.youtube.com/watch?v=Rs72pRwXIzA 23:32
-//Firebase Stuff: https://www.youtube.com/watch?v=J7pkSP18Oko
+//import icons from icons.expo.fyi
+import { FontAwesome5 } from '@expo/vector-icons';
+import { Ionicons } from '@expo/vector-icons';
+import { AntDesign } from '@expo/vector-icons';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { Entypo } from '@expo/vector-icons';
+import { MaterialIcons } from '@expo/vector-icons';
+import { Feather } from '@expo/vector-icons';
 
 const SignUpScreen = ({ navigation }) => {
 
@@ -70,32 +76,17 @@ const SignUpScreen = ({ navigation }) => {
     });
   }
 
-  const HandleAgeChange = (val) => {
-    setData({
-      ...data,
-      age: val
-    });
-  }
-  const HandleAccountTypeChange = (val) => {
-    setData({
-      ...data,
-      AccountType: val
-    });
-  }
-
   return (
-    <View style={styles.container}>
-      {/* <View style={styles.header}>
-        <Text style={styles.text_header}>Register!</Text>
-      </View> */}
+    <ScrollView style={styles.container}>
+      <View style={{ justifyContent: 'center', alignContent: 'center', alignItems: 'center' }}>
+        <Text style={[styles.text_footer, styles.nyitBlue]}>Welcome! Please fill out the fields below to register.</Text>
+      </View>
+
+
       <View style={styles.footer}>
-        <Text style={styles.text_footer}>Email</Text>
+        <Text style={styles.text_footer}>Email(Please use only your NYIT email)</Text>
         <View style={styles.action}>
-          <FontAwesome
-            name="user"
-            color="#05375a"
-            size={20}
-          />
+          <MaterialIcons name="email" size={20} color="black" />
           <TextInput
             placeholder='Your Email'
             style={styles.textInput}
@@ -113,11 +104,7 @@ const SignUpScreen = ({ navigation }) => {
 
         <Text style={[styles.text_footer, { marginTop: 35 }]}>Password</Text>
         <View style={styles.action}>
-          <Feather
-            name="lock"
-            color="#05375a"
-            size={20}
-          />
+          <FontAwesome5 name="lock" size={20} color="black" />
           <TextInput
             placeholder='Your Password'
             style={styles.textInput}
@@ -142,8 +129,9 @@ const SignUpScreen = ({ navigation }) => {
           </TouchableOpacity>
         </View>
 
-        <Text style={styles.text_footer}>What is your name?(First name only)</Text>
+        <Text style={[styles.text_footer, { marginTop: 35 }]}>What is your first name?</Text>
         <View style={styles.action}>
+          <FontAwesome5 name="user-alt" size={20} color="black" />
           <TextInput
             placeholder='Your First Name'
             style={styles.textInput}
@@ -152,12 +140,27 @@ const SignUpScreen = ({ navigation }) => {
           />
         </View>
 
-        <Text style={{
-          paddingVertical: 20
-        }}>
-          <Text style={[styles.text_footer, { marginTop: 50 }]}>What is your age?</Text>
+        <Text style={[styles.text_footer, { marginTop: 35 }]}>What is your last name?</Text>
+        <View style={styles.action}>
+          <FontAwesome5 name="user-alt" size={20} color="black" />
+          <TextInput
+            placeholder='Your Last Name'
+            style={styles.textInput}
+            autoCapitalize='none'
+            onChangeText={(val) => HandleNameChange(val)}
+          />
+        </View>
 
-        </Text>
+        <Text style={[styles.text_footer, { marginTop: 35 }]}>What is your NYIT ID?</Text>
+        <View style={styles.action}>
+          <Entypo name="v-card" size={24} color="black" />
+          <TextInput
+            placeholder='Your NYIT ID'
+            style={styles.textInput}
+            autoCapitalize='none'
+            onChangeText={(val) => HandleNameChange(val)}
+          />
+        </View>
         {/* <Picker //Drop down menu for their age                  //https://www.youtube.com/watch?v=dAB_-mDR-Rs Maybe so that i dont have to add age manually
           selectedValue={data.age}
           onValueChange={(itemValue) =>
@@ -177,21 +180,6 @@ const SignUpScreen = ({ navigation }) => {
           <Picker.Item label="38" value="38" />
           <Picker.Item label="39" value="39" />
 
-        </Picker> */}
-
-
-        <Text style={{
-          paddingVertical: 15
-        }}>
-          <Text style={[styles.text_footer, { marginVertical: 50 }]}>Are you a child or parent?</Text>
-        </Text>
-        {/* <Picker //Drop down menu and ask if their child or parent
-          selectedValue={data.AccountType}
-          onValueChange={(itemValue) =>
-            HandleAccountTypeChange(itemValue)
-          }>
-          <Picker.Item label="Child" value="Child" />
-          <Picker.Item label="Parent" value="Parent" />
         </Picker> */}
 
         <TouchableOpacity
@@ -224,8 +212,12 @@ const SignUpScreen = ({ navigation }) => {
         <TouchableOpacity onPress={() => navigation.navigate("SignInScreen")}>
           <Text style={styles.forgotPasswordButton}>Have an account already? Sign In</Text>
         </TouchableOpacity>
+
+        <View style={{ justifyContent: 'center', alignContent: 'center', alignItems: 'center' }}>
+          <Text style={[styles.text_footer, { marginTop: 35 }]}>-------------------Alternatives:------------------</Text>
+        </View>
       </View>
-    </View>
+    </ScrollView>
   )
 }
 
@@ -234,7 +226,7 @@ export default SignUpScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#009387'
+    backgroundColor: '#f2a900'
   },
   header: {
     flex: 1,
@@ -305,5 +297,8 @@ const styles = StyleSheet.create({
   textSign: {
     fontSize: 18,
     fontWeight: 'bold'
+  },
+  nyitBlue: {
+    color: '#143d7b'
   }
 });

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Image, Text, View, StyleSheet } from 'react-native';
 
-function Chats() {
+function Chats({props, navigation}) {
     return (
       <View>
         <Text>

@@ -63,7 +63,7 @@ const SignInScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.text_header}>Welcome!</Text>
+        <Text style={styles.text_header}>Welcome to Spotlight!</Text>
       </View>
       <View style={styles.footer}>
         <Text style={styles.text_footer}>Email</Text>
@@ -130,7 +130,7 @@ const SignInScreen = ({ navigation }) => {
         >
           <View style={styles.button}>
             <LinearGradient
-              colors={['#8800C7', '#8800C7']}
+              colors={['#8800C7', '#8800C7']} //Make it NYIT blue
               style={styles.signIn}
             >
               <Text style={[styles.textSign, { color: '#ffff' }]}>Sign In</Text>
@@ -158,10 +158,11 @@ export default SignInScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#8800C7'
+    backgroundColor: '#f2a900'
   },
   header: {
     flex: 1,
+    textAlign: 'center',
     justifyContent: 'flex-end',
     paddingHorizontal: 20,
     paddingBottom: 50

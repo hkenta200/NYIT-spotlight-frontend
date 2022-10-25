@@ -22,6 +22,12 @@ const ResetPassword = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
+    <View>
+      <Text>
+        Please enter the email associated with your account:
+      </Text>
+    </View>
+    
       <View style={styles.footer}>
         <TextInput
             placeholder='Your Email'
@@ -43,6 +49,10 @@ const ResetPassword = ({ navigation }) => {
               <Text style={[styles.textSign, { color: '#ffff' }]}>Reset Password</Text>
             </LinearGradient>
           </View>
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={() => navigation.navigate("SignInScreen")}>
+          <Text style={styles.forgotPasswordButton}>Have an account already? Sign In</Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -118,5 +128,13 @@ const styles = StyleSheet.create({
   textSign: {
     fontSize: 18,
     fontWeight: 'bold',
-  }
+  },
+  forgotPasswordButton: {
+    width: '100%',
+    height: 50,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 10,
+    color: '#6495ed'
+  },
 });

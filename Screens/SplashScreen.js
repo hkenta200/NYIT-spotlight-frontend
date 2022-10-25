@@ -7,7 +7,8 @@ import {
     Dimensions,
     StyleSheet,
     StatusBar,
-    Image
+    Image,
+    ScrollView
 } from 'react-native';
 
 import { LinearGradient } from 'expo-linear-gradient';
@@ -16,7 +17,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 
 const SplashScreen = ({ navigation }) => {
     return (
-        <View style={styles.container}>
+        <ScrollView style={styles.container}>
 
             {/* <Image
                 style={{height:100, width:100, tintColor: "white", alignSelf: 'center', marginTop: 250, marginBottom: 20}}
@@ -29,18 +30,35 @@ const SplashScreen = ({ navigation }) => {
                 SPOTLIGHT
             </Text>
 
+            <View style={{flexDirection:'row', justifyContent:'center'}}> 
             <TouchableOpacity onPress={() => navigation.navigate('SignInScreen')}
                 style={{alignSelf: 'center'}}
             >
                 <LinearGradient
-                    colors={['#4c00ac', '#4c00ac']}
+                    colors={['#143d7b', '#143d7b']}
                     style={styles.signIn}
                 >
-                    <Text style={styles.textSign}>Start</Text>
+                    <Text style={styles.textSign}>Log In</Text>
 
                 </LinearGradient>
             </TouchableOpacity>
-        </View>
+            
+
+            <View style={{marginLeft:50}}>
+            <TouchableOpacity onPress={() => navigation.navigate('SignUpScreen')}
+                style={{alignSelf: 'center'}}
+            >
+                <LinearGradient
+                    colors={['#143d7b', '#143d7b']}
+                    style={styles.signIn}
+                >
+                    <Text style={styles.textSign}>Sign Up</Text>
+
+                </LinearGradient>
+            </TouchableOpacity>
+            </View>
+            </View>
+        </ScrollView>
     )
 };
 
