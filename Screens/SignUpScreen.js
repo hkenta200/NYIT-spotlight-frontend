@@ -78,12 +78,10 @@ const SignUpScreen = ({ navigation }) => {
 
   return (
     <ScrollView style={styles.container}>
-      <View style={{ justifyContent: 'center', alignContent: 'center', alignItems: 'center' }}>
-        <Text style={[styles.text_footer, styles.nyitBlue]}>Welcome! Please fill out the fields below to register.</Text>
-      </View>
-
-
       <View style={styles.footer}>
+        <View style={{ justifyContent: 'center', alignContent: 'center', alignItems: 'center' }}>
+          <Text style={[styles.text_footer, styles.nyitBlue, {fontWeight: 'bold'}]}>Welcome! Please fill out the fields below to register.{"\n"}</Text>
+        </View>
         <Text style={styles.text_footer}>Email(Please use only your NYIT email)</Text>
         <View style={styles.action}>
           <MaterialIcons name="email" size={20} color="black" />

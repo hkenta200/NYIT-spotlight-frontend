@@ -12,6 +12,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { Feather } from '@expo/vector-icons';
+import { EvilIcons } from '@expo/vector-icons';
 
 import { Avatar, Drawer, Title, } from 'react-native-paper';
 
@@ -20,64 +21,83 @@ import Home from './Home';
 import Post from './Post';
 import Chats from './Chats';
 import Events from './Events';
+import Profile from './Profile';
+import Settings from './Settings';
 
-function DrawerContents({props, navigation}) {
+function DrawerContents({ props, navigation }) {
     return (
-        <DrawerContentScrollView {...props} contentContainerStyle={{alignContent:'center', justifyContent:'center'}} >
-            <Drawer.Section>
-                <Drawer.Item 
-                    icon={({ color, size }) => (
-                        <FontAwesome5 name="home" size={size} color={color} />
-                    )}
-                    label="Home"
-                    onPress={() => {}}
-                />
-            </Drawer.Section>
-            <Drawer.Section>
-                <Drawer.Item
-                    icon={({ color, size }) => (
-                        <Ionicons name="add-circle" size={size} color={color} />
-                    )}
-                    label="Post"
-                    onPress={() => { }}
-                />
-            </Drawer.Section>
-            <Drawer.Section>
-                <Drawer.Item
-                    icon={({ color, size }) => (
-                        <AntDesign name="calendar" size={size} color={color} />
-                    )}
-                    label="Events"
-                    onPress={() => { }}
-                />
-            </Drawer.Section>
-            <Drawer.Section>
-                <Drawer.Item
-                    icon={({ color, size }) => (
-                        <MaterialCommunityIcons name="thought-bubble" size={size} color={color} />
-                    )}
-                    label="Chats"
-                    onPress={() => { }}
-                />
-            </Drawer.Section>
-            <Drawer.Section>
-                <Drawer.Item
-                    icon={({ color, size }) => (
-                        <Feather name="settings" size={size} color={color} />
-                    )}
-                    label="Settings"
-                    onPress={() => { }}
-                />
-            </Drawer.Section>
-            <Drawer.Section>
-                <Drawer.Item
-                    icon={({ color, size }) => (
-                        <MaterialCommunityIcons name="exit-to-app" size={size} color={color} />
-                    )}
-                    label="Sign Out"
-                    onPress={() => { }}
-                />
-            </Drawer.Section>
+        <DrawerContentScrollView {...props} contentContainerStyle={{ alignContent: 'center', justifyContent: 'center' }} >
+
+            <View style={[{ justifyContent: 'center', alignContent: 'center', alignItems: 'center'}]}>
+                <EvilIcons name="user" size={100} />
+                <View style={[{flexDirection:'column', marginTop:10}]}>
+                    <Text style={[{fontWeight:'bold'}]}>
+                        Name
+                    </Text>
+                    <Text style={[{fontWeight:'bold', marginTop:10}]}>
+                        NYIT ID
+                    </Text>
+                </View>
+
+            </View>
+
+
+            <Drawer.Item
+                icon={({ color, size }) => (
+                    <FontAwesome5 name="home" size={size} color={color} />
+                )}
+                label="Home"
+                onPress={() => navigation.navigate(Home)}
+            />
+
+            <Drawer.Item
+                icon={({ color, size }) => (
+                    <AntDesign name="calendar" size={size} color={color} />
+                )}
+                label="Events"
+                onPress={() => navigation.navigate(Events)}
+            />
+
+            <Drawer.Item
+                icon={({ color, size }) => (
+                    <Ionicons name="add-circle" size={size} color={color} />
+                )}
+                label="Post"
+                onPress={() => navigation.navigate(Post)}
+            />
+
+            <Drawer.Item
+                icon={({ color, size }) => (
+                    <MaterialCommunityIcons name="thought-bubble" size={size} color={color} />
+                )}
+                label="Chats"
+                onPress={() => navigation.navigate(Chats)}
+            />
+
+            <Drawer.Item
+                icon={({ color, size }) => (
+                    <AntDesign name="profile" size={size} color={color} />
+                )}
+                label="Profile"
+                onPress={() => navigation.navigate(Profile)}
+            />
+
+            <Drawer.Item
+                icon={({ color, size }) => (
+                    <Feather name="settings" size={size} color={color} />
+                )}
+                label="Settings"
+                onPress={() => navigation.navigate(Settings)}
+            />
+
+            <Drawer.Item
+                icon={({ color, size }) => (
+                    <MaterialCommunityIcons name="exit-to-app" size={size} color={color} />
+                )}
+                label="Sign Out"
+                onPress={() => { }}
+            />
+
         </DrawerContentScrollView>
     )
 }
@@ -85,7 +105,7 @@ function DrawerContents({props, navigation}) {
 export default DrawerContents;
 
 const styles = StyleSheet.create({
-    topBorder:{
-        marginTop:50
+    topBorder: {
+        marginTop: 50
     }
 })

@@ -4,14 +4,14 @@ import spotlight from '../assets/spotlight.png';
 
 //Add a search bar at the top in here 
 
-function Home({props, navigation}) {
+function Settings({props, navigation}) {
     return (
       <View>
         <Text>
-          Home
+        Settings
         </Text>
       </View>
     )
 }
 
-export default Home;
+export default Settings;

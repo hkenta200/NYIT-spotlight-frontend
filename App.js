@@ -8,11 +8,13 @@ import SignUpScreen from './Screens/SignUpScreen';
 
 //https://stackoverflow.com/questions/1125968/how-do-i-force-git-pull-to-overwrite-local-files
 
-export default function App({props, navigation}) {
+export default function App({ props, navigation }) {
   return (
     <>
-      <StatusBar barStyle="auto" />
-      <RootStackScreen/>
+      
+        <StatusBar barStyle="auto" />
+        <RootStackScreen />
+      
     </>
   );
 }

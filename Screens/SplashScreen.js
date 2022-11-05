@@ -12,6 +12,7 @@ import {
 } from 'react-native';
 
 import { LinearGradient } from 'expo-linear-gradient';
+import NYITCampusesight from '../assets/NYITCampuses.png';
 //import LinearGradient from 'react-native-linear-gradient'; //npm install react-native-linear-gradient
 //https://reactnavigation.org/docs/getting-started/
 
@@ -25,38 +26,49 @@ const SplashScreen = ({ navigation }) => {
             /> */}
 
             <Text
-                style={{color: "white", fontSize : 30, alignSelf: 'center', marginBottom : 50}}
+                style={{ color: "white", fontSize: 30, alignSelf: 'center', marginBottom: 50 }}
             >
-                SPOTLIGHT
+                NYIT SPOTLIGHT
             </Text>
-
-            <View style={{flexDirection:'row', justifyContent:'center'}}> 
-            <TouchableOpacity onPress={() => navigation.navigate('SignInScreen')}
-                style={{alignSelf: 'center'}}
-            >
-                <LinearGradient
-                    colors={['#143d7b', '#143d7b']}
-                    style={styles.signIn}
-                >
-                    <Text style={styles.textSign}>Log In</Text>
-
-                </LinearGradient>
-            </TouchableOpacity>
-            
-
-            <View style={{marginLeft:50}}>
-            <TouchableOpacity onPress={() => navigation.navigate('SignUpScreen')}
-                style={{alignSelf: 'center'}}
-            >
-                <LinearGradient
-                    colors={['#143d7b', '#143d7b']}
-                    style={styles.signIn}
-                >
-                    <Text style={styles.textSign}>Sign Up</Text>
-
-                </LinearGradient>
-            </TouchableOpacity>
+            <View>
+                <Image source={NYITCampusesight} style={{flex:1, resizeMode:'contain'}}/>
             </View>
+
+            <View>
+                <Text
+                    style={{ color: "white", fontSize: 30, alignSelf: 'center', marginBottom: 50 }}
+                >
+                    THE APP THAT CONNECTS NYIT
+                </Text>
+            </View>
+
+            <View style={{ flexDirection: 'row', justifyContent: 'center' }}>
+                <TouchableOpacity onPress={() => navigation.navigate('SignInScreen')}
+                    style={{ alignSelf: 'center' }}
+                >
+                    <LinearGradient
+                        colors={['#143d7b', '#143d7b']}
+                        style={styles.signIn}
+                    >
+                        <Text style={styles.textSign}>Log In</Text>
+
+                    </LinearGradient>
+                </TouchableOpacity>
+
+
+                <View style={{ marginLeft: 50 }}>
+                    <TouchableOpacity onPress={() => navigation.navigate('SignUpScreen')}
+                        style={{ alignSelf: 'center' }}
+                    >
+                        <LinearGradient
+                            colors={['#143d7b', '#143d7b']}
+                            style={styles.signIn}
+                        >
+                            <Text style={styles.textSign}>Sign Up</Text>
+
+                        </LinearGradient>
+                    </TouchableOpacity>
+                </View>
             </View>
         </ScrollView>
     )
