@@ -25,6 +25,7 @@ import Chats from '../Screens/Chats';
 import Events from '../Screens/Events';
 import DrawerContents from '../Screens/DrawerContents';
 import Profile from '../Screens/Profile';
+import ChatStack from './ChatStack';
 
 import spotlight from '../assets/spotlight.png';
 
@@ -55,6 +56,7 @@ function NavigationDrawer({ props, navigation }) {
       drawerContent={(props) => <DrawerContents {...props} />}>
       <Drawer.Screen name="Welcome!" component={BottomTabs} />
       <Drawer.Screen name='asd' component={DrawerContents} />
+      
     </Drawer.Navigator>
   )
 }
@@ -121,7 +123,7 @@ function BottomTabs() {
       />
       <Tab.Screen
         name="Chats"
-        component={Chats}
+        component={ChatStack}
         options={{
           tabBarIcon: ({ focused, size }) => (
             <View style={{ justifyContent: 'center', alignContent: 'center', alignItems: 'center' }}>

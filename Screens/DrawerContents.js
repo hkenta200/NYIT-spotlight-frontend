@@ -23,6 +23,7 @@ import Chats from './Chats';
 import Events from './Events';
 import Profile from './Profile';
 import Settings from './Settings';
+import ChatStack from '../Navigation/ChatStack';
 
 function DrawerContents({ props, navigation }) {
     return (
@@ -71,7 +72,7 @@ function DrawerContents({ props, navigation }) {
                     <MaterialCommunityIcons name="thought-bubble" size={size} color={color} />
                 )}
                 label="Chats"
-                onPress={() => navigation.navigate(Chats)}
+                onPress={() => navigation.navigate(ChatStack)}
             />
 
             <Drawer.Item
@@ -95,7 +96,7 @@ function DrawerContents({ props, navigation }) {
                     <MaterialCommunityIcons name="exit-to-app" size={size} color={color} />
                 )}
                 label="Sign Out"
-                onPress={() => { }}
+                onPress={() => alert("Logged out!")}
             />
 
         </DrawerContentScrollView>

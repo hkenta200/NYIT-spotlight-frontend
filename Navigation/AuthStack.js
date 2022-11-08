@@ -22,4 +22,4 @@ const AuthStack = () => { //This page is used when there is no user currently lo
     )
 }
 
-export default AuthStack
+export default AuthStack;
