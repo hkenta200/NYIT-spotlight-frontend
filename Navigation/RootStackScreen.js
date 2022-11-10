@@ -1,33 +1,30 @@
 import React from 'react';
 
 import { createNativeStackNavigator } from "@react-navigation/native-stack"; //Need nativestack, not just stack
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer, getFocusedRouteNameFromRoute } from '@react-navigation/native';
 import { createDrawerNavigator, DrawerContentScrollView, DrawerItem } from "@react-navigation/drawer";
 import { DrawerActions } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'; //npm install react-native-reanimated react-native-gesture-handler react-native-screens react-native-safe-area-context @react-native-community/masked-view and //npm install @react-navigation/bottom-tabs 
 
-import { Image, Text, View, StyleSheet, TouchableOpacity } from 'react-native';
-
-import { Avatar, Title } from 'react-native-paper';
+import { Text, View, StyleSheet, TouchableOpacity } from 'react-native';
 
 //import icons from icons.expo.fyi
 import { FontAwesome5 } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { Feather } from '@expo/vector-icons';
 import { EvilIcons } from '@expo/vector-icons';
 
 //Import screens
 import Home from '../Screens/Home';
 import Post from '../Screens/Post';
-import Chats from '../Screens/Chats';
 import Events from '../Screens/Events';
 import DrawerContents from '../Screens/DrawerContents';
 import Profile from '../Screens/Profile';
 import ChatStack from './ChatStack';
 
 import spotlight from '../assets/spotlight.png';
+import Settings from '../Screens/Settings';
 
 const Drawer = createDrawerNavigator();
 const Tab = createBottomTabNavigator();
@@ -37,7 +34,23 @@ const RootStack = createNativeStackNavigator();
 //https://stackoverflow.com/questions/65493618/navigation-is-undefined-in-drawer-content
 //https://github.com/react-navigation/react-navigation/issues/9878
 
+function getHeaderTitle(route) {
+  const routeName = getFocusedRouteNameFromRoute(route) ?? 'Home';
+
+  switch (routeName) {
+    case 'Events':
+      return 'Events';
+    case 'Post':
+      return 'Post';
+    case 'Chats':
+      return 'Messages';
+    case 'Profile':
+      return 'Profile';
+  }
+}
+
 function NavigationDrawer({ props, navigation }) {
+
   return (
     <Drawer.Navigator
       screenOptions={{
@@ -54,9 +67,12 @@ function NavigationDrawer({ props, navigation }) {
         drawerType: 'slide',
       }}
       drawerContent={(props) => <DrawerContents {...props} />}>
-      <Drawer.Screen name="Welcome!" component={BottomTabs} />
+      <Drawer.Screen name="Welcome!" component={BottomTabs} options={({ route }) => ({
+        title: getHeaderTitle(route),
+        headerShown: true, headerTitleAlign: 'center'
+      })} />
       <Drawer.Screen name='asd' component={DrawerContents} />
-      
+
     </Drawer.Navigator>
   )
 }
@@ -168,6 +184,7 @@ function RootStackScreen() {
       >
         <RootStack.Screen name='Drawer' component={NavigationDrawer} />
         <RootStack.Screen name='BottomTabs' component={BottomTabs} />
+        <RootStack.Screen name='ChatStack' component={ChatStack} />
       </RootStack.Navigator>
     </NavigationContainer>
   )

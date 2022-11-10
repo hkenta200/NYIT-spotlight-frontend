@@ -1,15 +1,28 @@
-import React from 'react';
+import React, {useState, useContext} from 'react';
 import { LinearGradient } from 'expo-linear-gradient';
-import { Image, Text, View, TouchableOpacity, StyleSheet } from 'react-native';
+import { Image, Text, View, TouchableOpacity, StyleSheet, ScrollView } from 'react-native';
+import { TextInput } from 'react-native-paper';
 
 function Post() {
+
+    const [message, setMessasge] = useState("");
+
     return (
-        <View>
-            <Text>
-                Post
-            </Text>
-            <View style={{ flexDirection: 'row', justifyContent: 'center' }}>
-                <TouchableOpacity onPress={() => { }}
+        <ScrollView>
+            <View>
+                <TextInput
+                    mode='outlined'
+                    multiline={true}
+                    numberOfLines={25}
+                    focusable={true}
+                    placeholder="Your Text"
+                    onChangeText={(text) => setMessasge({message:text})}
+                >
+                    
+                </TextInput>
+            </View>
+            <View style={{ flexDirection: 'row', justifyContent: 'center', marginTop: 15 }}>
+                <TouchableOpacity onPress={() => alert({message})}
                     style={{ alignSelf: 'center' }}
                 >
                     <LinearGradient
@@ -23,7 +36,7 @@ function Post() {
 
 
                 <View style={{ marginLeft: 50 }}>
-                    <TouchableOpacity onPress={() => { }}
+                    <TouchableOpacity onPress={() => setMessasge("")}
                         style={{ alignSelf: 'center' }}
                     >
                         <LinearGradient
@@ -36,7 +49,7 @@ function Post() {
                     </TouchableOpacity>
                 </View>
             </View>
-        </View>
+        </ScrollView>
     )
 }
 

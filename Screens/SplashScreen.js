@@ -12,7 +12,7 @@ import {
 } from 'react-native';
 
 import { LinearGradient } from 'expo-linear-gradient';
-import NYITCampusesight from '../assets/NYITCampuses.png';
+import NYITCampuses from '../assets/NYITCampuses.png';
 //import LinearGradient from 'react-native-linear-gradient'; //npm install react-native-linear-gradient
 //https://reactnavigation.org/docs/getting-started/
 
@@ -31,7 +31,7 @@ const SplashScreen = ({ navigation }) => {
                 NYIT SPOTLIGHT
             </Text>
             <View>
-                <Image source={NYITCampusesight} style={{flex:1, resizeMode:'contain'}}/>
+                <Image source={NYITCampuses} style={{flex:1, width:'250%', length: '100%', resizeMode:'contain'}}/>
             </View>
 
             <View>
