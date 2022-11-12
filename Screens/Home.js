@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, FlatList } from 'react-native';
+import { Text, FlatList, View } from 'react-native';
 
 import { 
   Container, 
@@ -19,6 +19,7 @@ import spotlight from '../assets/spotlight.png';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { EvilIcons } from '@expo/vector-icons';
 import { Feather } from '@expo/vector-icons';
+import { TextInput } from 'react-native-paper';
 
 //Add a search bar at the top in here 
 
