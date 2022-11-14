@@ -185,6 +185,8 @@ function RootStackScreen() {
         <RootStack.Screen name='Drawer' component={NavigationDrawer} />
         <RootStack.Screen name='BottomTabs' component={BottomTabs} />
         <RootStack.Screen name='ChatStack' component={ChatStack} />
+        <RootStack.Screen name='Profile' component={Profile} />
+        <RootStack.Screen name='Settings' component={Settings} />
       </RootStack.Navigator>
     </NavigationContainer>
   )
